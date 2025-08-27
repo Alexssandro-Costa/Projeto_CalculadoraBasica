@@ -5,12 +5,16 @@ import java.util.Scanner;
 
 import calculation_Logic.Calculator;
 
-public class teste {
+public class Main {
 
 	public static void main(String[] args) {
+	
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
 		boolean programRun = true;
+		
+		
 		System.out.println("CALCULADORA");
 		
 		while(programRun) {
@@ -32,6 +36,7 @@ public class teste {
 				}
 				else if(option.charAt(0) == 'N') {
 					programRun = false;
+					break;
 				}
 				else {
 					System.out.println("Opção invalida!");
