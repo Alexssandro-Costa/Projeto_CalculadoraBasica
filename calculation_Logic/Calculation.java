@@ -1,5 +1,7 @@
 package calculation_Logic;
 
+import validation.ValidateNumber;
+
 public class Calculation {
 	
 	private Double operand1;
@@ -48,11 +50,12 @@ public class Calculation {
 	//Operação de divisão
 	private Double divisionOperation() {
 		
-		// divisão por 0
-		if(operand2 == 0) {
-			throw new NullPointerException("Erro de divisão por zero");
+		if(ValidateNumber.validation(operand1, operand2) == true) {
+			return operand1 / operand2;
 		}
-		return operand1 / operand2;
+		else {
+			return null;
+		}
 	}
 
 	//Operação de multiplicação

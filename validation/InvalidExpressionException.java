@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class InvalidExpressionException extends RuntimeException {
 	
 	// mostra uma mensagem de alerta na tela
-	public InvalidExpressionException(String message) {
+	private InvalidExpressionException(String message) {
 		super(message);
 	}
 	
