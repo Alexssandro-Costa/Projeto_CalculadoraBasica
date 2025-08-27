@@ -23,26 +23,14 @@ public class Main {
 			String input = sc.nextLine();
 			
 			// realiza a operação
-			System.out.println(Calculator.makeCalculation(input));
+			Double output = Calculator.makeCalculation(input);
 			
-			// verifica se o usuario deseja continuar ou não
-			while(true) {
-					
-				System.out.print("Deseja continuar? [S/N]: ");
-				String option = sc.nextLine().toUpperCase();
-				
-				if(option.charAt(0) == 'S') {
-					break;
-				}
-				else if(option.charAt(0) == 'N') {
-					programRun = false;
-					break;
-				}
-				else {
-					System.out.println("Opção invalida!");
-				}
+			if(output != null) {
+				System.out.println("Resultado: " + output);
 				
 			}
+			
+			programRun = isUserContinuing(sc);
 			
 		}
 		
@@ -53,4 +41,31 @@ public class Main {
 	}
 	
 	
+	public static boolean isUserContinuing(Scanner sc) {
+		
+		/*
+		 * Verifica se o programa deve continuar sendo executado
+		 * 
+		 */
+		
+		while(true) {
+			
+			System.out.print("Deseja continuar? [S/N]: ");
+			String option = sc.nextLine().toUpperCase();
+			
+			if(option.charAt(0) == 'S') {
+				return true;
+			}
+			else if(option.charAt(0) == 'N') {
+				return false;
+			}
+			else {
+				System.out.println("Opção invalida!");
+			}
+			
+		}
+		
+	}
+	
+		
 }

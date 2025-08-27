@@ -10,7 +10,7 @@ public class ValidateExpression {
 	public static Matcher validation(String input) {
 		
 		// define o padrão de entrada para: operador operando operador
-		Pattern pattern = Pattern.compile("\\s*(-?\\d+(?:\\.\\d+)?)\\s*([-+*/:])\\s*(-?\\d+(?:\\.\\d+)?)\\s*");
+		Pattern pattern = Pattern.compile("\\s*(-?\\d+(?:\\.\\d+)?)\\s*([-+*/:.])\\s*(-?\\d+(?:\\.\\d+)?)\\s*");
 		
 		// define a entrada
 		Matcher matcher = pattern.matcher(input);

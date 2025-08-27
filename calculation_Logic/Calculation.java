@@ -2,8 +2,8 @@ package calculation_Logic;
 
 public class Calculation {
 	
-	private double operand1;
-	private double operand2;
+	private Double operand1;
+	private Double operand2;
 	private String operator;
 	
 	
@@ -14,7 +14,7 @@ public class Calculation {
 	}
 	
 	// determina a operação
-	public double Operation() {
+	public Double Operation() {
 		
 		switch(operator) {
 		case "+":
@@ -22,40 +22,41 @@ public class Calculation {
 		case "-":
 			return subtractOperation();
 		case "*":
+		case ".":
 			return multiplicationOperation();
 		case "/":
 		case ":":
 			return divisionOperation();
 		default:
-			return 0;
+			return null;
 		}
 	}
 	
 
 	//Operação de soma
-	private double sumOperation() {
+	private Double sumOperation() {
 
 		return operand1 + operand2;
 	}
 
 	//Operação de Subtração
-	private double subtractOperation() {
+	private Double subtractOperation() {
 
 		return operand1 - operand2;	
 	}
 
 	//Operação de divisão
-	private double divisionOperation() {
+	private Double divisionOperation() {
 		
 		// divisão por 0
 		if(operand2 == 0) {
-			return 0;
+			throw new NullPointerException("Erro de divisão por zero");
 		}
 		return operand1 / operand2;
 	}
 
 	//Operação de multiplicação
-	private double multiplicationOperation() {
+	private Double multiplicationOperation() {
 		
 		return operand1 * operand2;
 	}
