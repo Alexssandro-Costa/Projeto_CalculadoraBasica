@@ -36,13 +36,13 @@ public class Calculation {
 	
 
 	//Operação de soma
-	private Double sumOperation() {
+	private double sumOperation() {
 
 		return operand1 + operand2;
 	}
 
 	//Operação de Subtração
-	private Double subtractOperation() {
+	private double subtractOperation() {
 
 		return operand1 - operand2;	
 	}
@@ -59,7 +59,7 @@ public class Calculation {
 	}
 
 	//Operação de multiplicação
-	private Double multiplicationOperation() {
+	private double multiplicationOperation() {
 		
 		return operand1 * operand2;
 	}

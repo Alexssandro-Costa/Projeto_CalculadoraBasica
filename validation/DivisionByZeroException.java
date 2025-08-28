@@ -7,7 +7,7 @@ public class DivisionByZeroException extends RuntimeException {
 	 * Verifica Se uma expressão está sendo dividida por zero
 	 */
 	
-	private DivisionByZeroException(String message) {
+	public DivisionByZeroException(String message) {
 		super(message);
 	}
 	

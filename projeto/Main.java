@@ -14,7 +14,6 @@ public class Main {
 		
 		boolean programRun = true;
 		
-		
 		System.out.println("CALCULADORA");
 		
 		while(programRun) {
@@ -23,12 +22,9 @@ public class Main {
 			String input = sc.nextLine();
 			
 			// realiza a operação
-			Double output = Calculator.makeCalculation(input);
+			Calculator.makeCalculation(input).ifPresent(
+					output -> System.out.println("Resultado: "  + output));
 			
-			if(output != null) {
-				System.out.println("Resultado: " + output);
-				
-			}
 			
 			programRun = isUserContinuing(sc);
 			
