@@ -5,9 +5,15 @@ import java.util.regex.Pattern;
 
 public class ValidateExpression {
 	
+	/*
+	 * Verifica se a entrada passada é compativel com o padrão de uma expressão.
+	 * 
+	 * @author Alexssandro Oliveira
+	 */
+	
 	
 	// verifica se uma entrada é valida como expressão numerica
-	public static Matcher validation(String input) {
+	public static String[] validation(String input) {
 		
 		// define o padrão de entrada para: operador operando operador
 		Pattern pattern = Pattern.compile("\\s*(-?\\d+(?:\\.\\d+)?)\\s*([-+*/:.])\\s*(-?\\d+(?:\\.\\d+)?)\\s*");
@@ -19,7 +25,11 @@ public class ValidateExpression {
 		try {
 			
 			InvalidExpressionException.verifyInput(matcher, pattern, "Expressão Invalida!");	
-			return matcher; // entrada valida
+			 // entrada valida
+			
+			String[] expression = {matcher.group(1), matcher.group(2), matcher.group(3)};
+			return expression;
+			
 		}
 		catch(InvalidExpressionException I) {
 				System.out.println(I.getMessage());
