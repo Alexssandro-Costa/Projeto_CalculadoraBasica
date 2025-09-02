@@ -20,15 +20,15 @@ public class Calculation {
 		
 		switch(operator) {
 		case "+":
-			return sumOperation();
+			return sum();
 		case "-":
-			return subtractOperation();
+			return subtraction();
 		case "*":
 		case ".":
-			return multiplicationOperation();
+			return multiplication();
 		case "/":
 		case ":":
-			return divisionOperation();
+			return division();
 		default:
 			return null;
 		}
@@ -36,21 +36,25 @@ public class Calculation {
 	
 
 	//Operação de soma
-	private double sumOperation() {
+	private double sum() {
 
 		return operand1 + operand2;
 	}
 
 	//Operação de Subtração
-	private double subtractOperation() {
+	private double subtraction() {
 
 		return operand1 - operand2;	
 	}
 
 	//Operação de divisão
-	private Double divisionOperation() {
+	private Double division() {
+		
 		
 		if(ValidateNumber.validation(operand1, operand2) == true) {
+			/*
+			 * @exception Verifica se um numero está sendo divido por 0
+			 */
 			return operand1 / operand2;
 		}
 		else {
@@ -59,7 +63,7 @@ public class Calculation {
 	}
 
 	//Operação de multiplicação
-	private double multiplicationOperation() {
+	private double multiplication() {
 		
 		return operand1 * operand2;
 	}

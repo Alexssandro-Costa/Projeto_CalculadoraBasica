@@ -12,6 +12,8 @@ public class Main {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
+		
+		Calculator calculator = new Calculator();
 		boolean programRun = true;
 		
 		System.out.println("CALCULADORA");
@@ -22,8 +24,7 @@ public class Main {
 			String input = sc.nextLine();
 			
 			// realiza a operação
-			Calculator.makeCalculation(input).ifPresent(
-					output -> System.out.println("Resultado: "  + output));
+			System.out.println(calculator.makeCalculation(input));
 			
 			
 			programRun = isUserContinuing(sc);
