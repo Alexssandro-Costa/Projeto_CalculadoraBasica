@@ -1,11 +1,22 @@
 package calculation_Logic;
 
-import validation.ValidateNumber;
+import exceptions.DivisionByZeroException;
 
 public class Calculation {
 	
-	private Double operand1;
-	private Double operand2;
+	/*
+	 * Realiza as operações matematicas.
+	 * 
+	 * @Author Alexssandro Oliveira
+	 * 
+	 * @param operand1: primeiro operando
+	 * @param operator: operador
+	 * @param operand2: Segundo operando
+	 * 
+	 */
+	
+	private double operand1;
+	private double operand2;
 	private String operator;
 	
 	
@@ -16,7 +27,7 @@ public class Calculation {
 	}
 	
 	// determina a operação
-	public Double Operation() {
+	public String Operation() {
 		
 		switch(operator) {
 		case "+":
@@ -31,41 +42,42 @@ public class Calculation {
 			return division();
 		default:
 			return null;
+			
 		}
 	}
 	
 
 	//Operação de soma
-	private double sum() {
+	private String sum() {
 
-		return operand1 + operand2;
+		return String.format("" + ( (double) operand1 + operand2));
 	}
 
 	//Operação de Subtração
-	private double subtraction() {
+	private String subtraction() {
 
-		return operand1 - operand2;	
+		return String.format("" + ( (double) operand1 - operand2));	
 	}
 
 	//Operação de divisão
-	private Double division() {
+	private String division() {
 		
+		try {
+			
+			DivisionByZeroException.verifyInput(operand1, operand2);
+			return String.format("" + operand1 / operand2);
+			
+		}
+		catch(DivisionByZeroException D) {
+			return D.getMessage();
+		}
 		
-		if(ValidateNumber.validation(operand1, operand2) == true) {
-			/*
-			 * @exception Verifica se um numero está sendo divido por 0
-			 */
-			return operand1 / operand2;
-		}
-		else {
-			return null;
-		}
 	}
 
 	//Operação de multiplicação
-	private double multiplication() {
+	private String multiplication() {
 		
-		return operand1 * operand2;
+		 return String.format("" + (double) operand1 * operand2);
 	}
 
 

@@ -1,8 +1,6 @@
 package calculation_Logic;
 
 
-import java.util.regex.Matcher;
-
 import validation.ValidateExpression;
 
 public class Calculator {
@@ -16,15 +14,18 @@ public class Calculator {
 	
 	
 	// realiza a operação
-	public Double makeCalculation(String input) {
+	public String makeCalculation(String input) {
+		
+		String[] expression;
 		
 		// verifica se a entrada é valida
-		String[] expression = ValidateExpression.validation(input);
-		
-		// padrão invalido
-		if(expression == null) {
-			return null;
+		if(ValidateExpression.validation(input) instanceof String) {
+			return (String) ValidateExpression.validation(input);
 		}
+		else {
+			expression = (String[]) ValidateExpression.validation(input);	
+		}
+		
 		
 		// transforma a entrada em em um padrão valido
 		double op1 = Double.parseDouble(expression[0]);

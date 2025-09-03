@@ -3,6 +3,8 @@ package validation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import exceptions.InvalidExpressionException;
+
 public class ValidateExpression {
 	
 	/*
@@ -13,7 +15,7 @@ public class ValidateExpression {
 	
 	
 	// verifica se uma entrada é valida como expressão numerica
-	public static String[] validation(String input) {
+	public static Object validation(String input) {
 		
 		// define o padrão de entrada para: operador operando operador
 		Pattern pattern = Pattern.compile("\\s*(-?\\d+(?:\\.\\d+)?)\\s*([-+*/:.])\\s*(-?\\d+(?:\\.\\d+)?)\\s*");
@@ -24,19 +26,18 @@ public class ValidateExpression {
 		// verifica se a entrada é compativel com o padrão
 		try {
 			
-			InvalidExpressionException.verifyInput(matcher, pattern, "Expressão Invalida!");	
-			 // entrada valida
+			InvalidExpressionException.verifyInput(matcher, pattern);	
 			
 			String[] expression = {matcher.group(1), matcher.group(2), matcher.group(3)};
 			return expression;
 			
 		}
-		catch(InvalidExpressionException I) {
-				System.out.println(I.getMessage());
-				return null; // não valida
+		catch(InvalidExpressionException ex) {
+			
+				
+				String result = ex.getMessage();
+				return result;
 			}
-		
-		
 	}
 
 }
